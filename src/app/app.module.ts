@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import {TodoModule} from "./todo/todo.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {TodoModule} from "./todo/todo.module";
     imports: [
         BrowserModule,
         HttpClientModule,
-        TodoModule
+        TodoModule,
+        BrowserAnimationsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
