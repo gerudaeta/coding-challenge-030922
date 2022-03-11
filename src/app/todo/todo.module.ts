@@ -5,11 +5,14 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 
 
 @NgModule({
-  declarations: [
-    TodoListComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+        TodoListComponent
+    ],
+    exports: [
+        TodoListComponent
+    ],
+    imports: [
+        CommonModule
+    ]
 })
 export class TodoModule { }
