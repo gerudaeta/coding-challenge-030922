@@ -1,1 +1,55 @@
-<p>todo-list works!</p>
+<div fxLayout="row" fxFlexAlign="center">
+    <div fxFlex="20"></div>
+    <div fxFlex="60">
+        <div fxLayout="row">
+            <div fxFlex>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" appearance="legacy">
+                        <mat-label>Task</mat-label>
+                        <input type="email" matInput [formControl]="taskFormControl" placeholder="New Task">
+                        <mat-error *ngIf="taskFormControl.hasError('required')">
+                            Task is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div fxFlex>
+                <button mat-button color="primary" (click)="addTask()">Add Task</button>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+
+                        <!-- Id Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <!-- Completed Column -->
+                        <ng-container matColumnDef="completed">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxFlex="20"></div>
+</div>
