@@ -1,7 +1,7 @@
 <div fxLayout="row" fxFlexAlign="center">
     <div fxFlex="20"></div>
     <div fxFlex="60">
-        <div fxLayout="row">
+        <div fxLayout="column">
             <div fxFlex>
                 <form class="example-form">
                     <mat-form-field class="example-full-width" appearance="legacy">
@@ -17,6 +17,10 @@
                 <button mat-button color="primary" (click)="addTask()">Add Task</button>
             </div>
         </div>
+
+        <mat-divider></mat-divider>
+
+        <h3>List To-Do</h3>
 
         <div fxLayout="row">
             <div fxFlex>
@@ -38,7 +42,9 @@
                         <!-- Completed Column -->
                         <ng-container matColumnDef="completed">
                             <th mat-header-cell *matHeaderCellDef> Status </th>
-                            <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-checkbox [checked]="element.completed"></mat-checkbox>
+                            </td>
                         </ng-container>
 
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
